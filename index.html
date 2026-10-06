@@ -3,98 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jhumka By Ruba Inam</title>
+    <title>Jhumkas and Jewellery</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Link to CSS File -->
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <div id="sideMenu" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <h2 class="sidebar-title">CATEGORIES</h2>
-        <a href="jhumka-collection.html">Golden Jhumkas</a>
-        <a href="wedding-collection.html">Wedding Collection</a>
-        <a href="hoops-collection.html">Chic Hoops Collections</a>
+
+    <!-- Header Section -->
+    <header>
+        <a href="#" class="brand-title">Jhumkas & Jewellery</a>
         
+        <div class="header-right">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search collections..." style="padding-left: 15px;">
+            </div>
+
+            <a href="https://wa.me/923368089144?text=Hi,%20I%20want%20to%20buy%20jewellery!" target="_blank" class="whatsapp-btn" style="padding: 7px 10px; border-radius: 50%;">
+                <img src="whatsapp.png" alt="WhatsApp" style="width: 20px; height: 20px; vertical-align: middle;">
+            </a>
+
+            <div class="cart-summary-badge" onclick="toggleCartDrawer()">
+                <span>🛍️</span> Cart (<span id="cart-count">0</span>)
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3>Categories</h3>
+            <ul class="category-list">
+                <li><a href="#">Royal Jhumkas</a></li>
+                <li><a href="#">Kundan Sets</a></li>
+                <li><a href="#">Meenakari Earrings</a></li>
+                <li><a href="#">Chokers</a></li>
+                <li><a href="#">Pearl Hangings</a></li>
+            </ul>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="content-area">
+            <div class="hero-banner">
+                <div class="crafted-title">Crafted for Every Celebration</div>
+                <h1 class="main-tagline">Timeless Adornments for Your Unique Story</h1>
+            </div>
+
+            <h2 class="section-heading">Featured Pieces</h2>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card" onclick="openProductModal(1, 'Oval Gold Jhumka', 1800, ['oval1.png','oval2.png'])">
+                    <div class="product-img-box">
+                        <img src="oval1.png" alt="Oval Gold Jhumka">
+                    </div>
+                    <div class="product-details">
+                        <div class="product-name">Oval Gold Jhumka</div>
+                        <div class="product-price">Rs. 1800</div>
+                        <button type="button" class="add-cart-btn" onclick="event.stopPropagation(); addToCart(1, 'Oval Gold Jhumka', 1800)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" onclick="openProductModal(2, 'Pearl & Bead Fringe', 1800, ['round1.png','round2.png'])">
+                    <div class="product-img-box">
+                        <img src="round1.png" alt="Pearl & Bead Fringe">
+                    </div>
+                    <div class="product-details">
+                        <div class="product-name">Pearl & Bead Fringe</div>
+                        <div class="product-price">Rs. 1800</div>
+                        <button type="button" class="add-cart-btn" onclick="event.stopPropagation(); addToCart(2, 'Pearl & Bead Fringe', 1800)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card" onclick="openProductModal(3, 'South indian chokar set', 2800, ['chokar1.png', 'chokar2.png'])">
+                    <div class="product-img-box">
+                        <img src="chokar2.png" alt="South indian chokar set">
+                    </div>
+                    <div class="product-details">
+                        <div class="product-name">South indian chokar set</div>
+                        <div class="product-price">Rs. 2800</div>
+                        <button type="button" class="add-cart-btn" onclick="event.stopPropagation(); addToCart(3, 'South indian chokar set', 2800)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                
+                </div>
+            </div>
+        </main>
     </div>
 
-    <div id="welcome-screen">
-        <h1>Welcome to <span> jhumka Store </span></h1>
-    </div>
-
-    <div class="navbar">
-        <a href="index.html" class="logo-link">
-            <img src="logo.png.jpeg" alt="Jhumka By Ruba Inam Logo" class="brand-logo">
-        </a>
-
-        <div class="menu">
-            <a href="index.html" class="nav-item">
-                <img src="home.jfif" alt="Home" class="nav-icon">
-                <span>Home</span>
-            </a>
-
-            <a href="javascript:void(0)" class="nav-item" onclick="openNav()">
-                <img src="product.jfif" alt="Categories" class="nav-icon">
-                <span>Categories</span>
-            </a>
-
-            <a href="https://wa.me/923368089144" class="nav-item">
-                <img src="contact.jfif" alt="Contact" class="nav-icon">
-                <span>Contact</span>
-            </a>
+    <!-- Product Modal -->
+    <div class="product-modal-overlay" id="productModalOverlay" onclick="closeProductModal()"></div>
+    <div class="product-modal" id="productModal">
+        <span class="close-modal" onclick="closeProductModal()">&times;</span>
+        <div class="modal-body-content">
+            <div class="modal-img-container" id="zoomContainer" onmousemove="zoomIn(event)" onmouseleave="zoomOut()">
+                <img id="modalMainImg" src="" alt="Product View">
+                <div class="zoom-hint">Hover to Zoom 🔍</div>
+            </div>
+            <div class="modal-info-box">
+                <h2 id="modalProductName">Product Name</h2>
+                <div id="modalProductPrice" class="modal-price">Rs. 0</div>
+                <p class="modal-desc">Handcrafted with intricate detail and premium gold/gemstone plating.</p>
+                <div class="angles-title">Select Angle / View:</div>
+                <div class="modal-thumbnails" id="modalThumbnails"></div>
+                <button type="button" class="modal-add-btn" id="modalAddCartBtn">Add to Cart</button>
+            </div>
         </div>
     </div>
 
-    <div class="hero">
-        <h1 class="main-title">𝗝𝗵𝘂𝗺𝗸𝗮 𝗦𝘁𝗼𝗿𝗲</h1>
-        <p class="sub-title"> 𝗪𝗲𝗮𝗿 𝘆𝗼𝘂𝗿 𝗱𝗲𝘀𝗶 𝘀𝗽𝗮𝗿𝗸𝗹𝗲 - 𝘄𝗵𝗲𝗿𝗲 𝘁𝗿𝗮𝗱𝗶𝘁𝗶𝗼𝗻 𝗺𝗲𝗲𝘁𝘀 𝗰𝗵𝗶𝗰</p>
-        <a href="#categories"><button class="shop-btn">Shop Now</button></a>
-    </div>
-
-    <h2 class="title" id="categories">Explore Categories</h2>
-
-    <div class="categories-section">
-        <a href="jhumka-collection.html" class="category-card">
-            <div class="circle-frame">
-                <img src="jhumka.jpeg" alt="Casual Jhumkas">
-            </div>
-            <h3>Casual Jhumkas</h3>
-            <button class="open-link-btn">Open</button>
-        </a>
-
-        <a href="wedding-collection.html" class="category-card">
-            <div class="circle-frame">
-                <img src="wedding.jpeg" alt="Wedding Wear">
-            </div>
-            <h3>Wedding Wear</h3>
-            <button class="open-link-btn">Open</button>
-        </a>
-
-        <a href="hoops-collection.html" class="category-card">
-            <div class="circle-frame">
-                <img src="honey.jfif" alt="Chic hoops Collection">
-            </div>
-            <h3>Chic Hoops</h3>
-            <button class="open-link-btn">Open</button>
-        </a>
-
-    
-    </div>
-
-    <section class="store-summary-section">
-        <div class="summary-container">
-            <h2>Jhumka Store by Ruba</h2>
-            <p>"Where tradition meets timeless elegance. Our collection is curated for the modern woman who cherishes her roots. From intricate wedding ensembles to everyday golden aesthetics, we bring you handcrafted jhumkas designed to make every moment shine."</p>
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCartDrawer()"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>Your Shopping Cart</h3>
+            <span class="close-cart" onclick="toggleCartDrawer()">&times;</span>
         </div>
-    </section>
-
-    <footer>
-       
+        <div class="cart-items-container" id="cartItemsContainer">
+            <p class="empty-cart-msg">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Total Bill:</span>
+                <span id="drawer-total-amount">Rs. 0</span>
+            </div>
+            <a href="#" id="whatsappCheckoutBtn" target="_blank" class="checkout-whatsapp-btn">Send Order to WhatsApp 💬</a>
+        </div>
+    </div>
 
     <script>
-    function openNav() { document.getElementById("sideMenu").style.width = "280px"; }
-    function closeNav() { document.getElementById("sideMenu").style.width = "0"; }
-    </script>
+        let cart = [];
+        function toggleCartDrawer() {
+            document.getElementById('cartDrawer').classList.toggle('open');
+            document.getElementById('cartOverlay').classList.toggle('open');
+        }
+        function addToCart(id, name, price) {
+            let item = cart.find(i => i.id === id);
+            if(item) item.qty++; else cart.push({id, name, price, qty: 1});
+            updateCartUI(); toggleCartDrawer();
+        }
+        function changeItemQty(id, delta) {
+            let item = cart.find(i => i.id === id);
+            if(item) { item.qty += delta; if(item.qty <= 0) cart = cart.filter(i => i.id !== id); }
+            updateCartUI();
+        }
+        function updateCartUI() {
+            let container = document.getElementById('cartItemsContainer');
+            container.innerHTML = cart.length === 0 ? '<p class="empty-cart-msg">Your cart is empty.</p>' : '';
+            let total = 0, count = 0;
+            cart.forEach(i => {
+                total += i.price * i.qty; count += i.qty;
+                container.innerHTML += `<div class="cart-item-row"><div class="cart-item-info"><div class="cart-item-name">${i.name}</div><div class="cart-item-price">Rs. ${i.price} x ${i.qty}</div></div><div class="cart-item-controls"><button class="qty-btn" onclick="changeItemQty(${i.id}, -1)">-</button><span class="qty-num">${i.qty}</span><button class="qty-btn" onclick="changeItemQty(${i.id}, 1)">+</button></div></div>`;
+            });
+            document.getElementById('cart-count').textContent = count;
+            document.getElementById('drawer-total-amount').textContent = 'Rs. ' + total;
+            
+            // Dynamic WhatsApp checkout message generator
+            let orderText = "Hi, I want to order these items:%0A";
+            cart.forEach(i => {
+                orderText += `- ${i.name} (Qty: ${i.qty}) - Rs. ${i.price * i.qty}%0A`;
+            });
+            orderText += `Total: Rs. ${total}`;
+            document.getElementById('whatsappCheckoutBtn').href = `https://wa.me/923368089144?text=${orderText}`;
+        }
+        function openProductModal(id, name, price, imgs) {
+            document.getElementById('modalProductName').textContent = name;
+            document.getElementById('modalProductPrice').textContent = 'Rs. ' + price;
+            document.getElementById('modalMainImg').src = imgs[0];
+            
+            // Modal Add to Cart Button functionality link
+            document.getElementById('modalAddCartBtn').onclick = function() {
+                addToCart(id, name, price);
+                closeProductModal();
+            };
 
+            let thumbs = document.getElementById('modalThumbnails'); thumbs.innerHTML = '';
+            imgs.forEach((img, idx) => {
+                thumbs.innerHTML += `<img src="${img}" class="thumb-img ${idx===0?'active-thumb':''}" onclick="document.getElementById('modalMainImg').src='${img}'">`;
+            });
+            document.getElementById('productModal').classList.add('open');
+            document.getElementById('productModalOverlay').classList.add('open');
+        }
+        function closeProductModal() {
+            document.getElementById('productModal').classList.remove('open');
+            document.getElementById('productModalOverlay').classList.remove('open');
+        }
+        function zoomIn(e) {
+            let c = document.getElementById('zoomContainer'), img = document.getElementById('modalMainImg'), r = c.getBoundingClientRect();
+            img.style.transformOrigin = `${((e.clientX - r.left)/r.width)*100}% ${((e.clientY - r.top)/r.height)*100}%`;
+            img.style.transform = "scale(2.2)";
+        }
+        function zoomOut() {
+            let img = document.getElementById('modalMainImg');
+            img.style.transformOrigin = "center center"; img.style.transform = "scale(1)";
+        }
+    </script>
 </body>
 </html>

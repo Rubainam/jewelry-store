@@ -1,435 +1,342 @@
-/* --- 1. General Styles --- */
-body {
+* {
     margin: 0;
-    background: linear-gradient(to bottom, 
-                rgba(155, 79, 3, 0.2), 
-                rgba(255, 255, 255, 0)
-                ), 
-                url('back.jfif');
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-    overflow-x: hidden;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* --- 2. Navbar Styling --- */
-.navbar {
+body {
+    /* Background Image Fixed with Gradient Tint Overlay */
+    background-image: linear-gradient(rgba(251, 249, 245, 0.9), rgba(244, 237, 226, 0.9)), url('imagee.copy.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #2c2c2c;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* --- Header --- */
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 40px;
-    background: #b98d14 !important; 
-    border-bottom: 4px solid #D4AF37; 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    position: relative;
+    padding: 20px 50px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e3d5c6;
+    position: sticky;
+    top: 0;
     z-index: 1000;
 }
-.brand-logo {
-    height: 100px; 
-    width: auto;
-    display: block;
-    background: transparent;
-    filter: multiply(1.5);
-    mix-blend-mode: multiply;
-}
-.navbar .menu {
-    display: flex;
-    gap: 25px;
-    align-items: center;
 
-}
-.nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.brand-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #1b4d3e;
+    text-transform: uppercase;
     text-decoration: none;
 }
 
-.nav-icon {
-    width: 45px; 
-    height: 45px;
-    border-radius: 50%;
-    border: 2px solid #D4AF37;
-    background: transparent;
-    mix-blend-mode: multiply;
-    padding: 2px;
-    object-fit: cover;
-   
-}
-
-.nav-item span {
-    font-size: 11px;
-    color: black !important; 
-    text-transform: uppercase;
-    font-weight: 400;
-    margin-top: 4px;
-
-}
-/* --- 3. Hero Section --- */
-.hero {
-    text-align: center;
-    padding: 100px 20px;
-}
-
-.main-title {
-    font-size: 48px;
-    color: #795a04;
-    font-weight: 800;
-}
-
-.hero p {
-    font-size: 18px;
-    color: #9b7610;
-}
-
-.shop-btn {
-
-     display: inline-block !important;
-    padding: 10px 35px !important;
-    background: #b98d14 !important; /* Shuru mein Brown */
-    color: white !important;
-    font-weight: bold !important;
-    border-radius: 25px !important;
-    border: 2px solid transparent !important; 
-    text-decoration: none !important;
-    cursor: pointer !important;
-    transition: all 0.3s ease !important;
-    margin-top: 10px;
-}
-
-/* Mouse jate hi Button Gold aur Border Brown ho jaye */
-.shop-btn:hover {
-    background: #D4AF37 !important; 
-    border: 2px solid #8B4513 !important; 
-    color: white !important;
-}
-
-/* Tap/Click par effect */
-.shop-btn:active {
-    transform: scale(0.9);
-}
-
-
-
-/* --- 4. Categories Section --- */
-.title {
-    text-align: center;
-    margin: 50px 0;
-    color: #795a04;
-    font: 100;
-}
-
-.categories-section {
+.header-right {
     display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    padding-bottom: 50px;
-}
-
-.category-card {
-    text-align: center;
-    text-decoration: none;
-    width: 200px;
-}
-/* Line 114 par ye paste karein */
-.category-card h3 {
-    color: #af890b !important; /* Blue ko Brown karne ke liye */
-    font-size: 16px;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-top: 15px;
-}
-.circle-frame {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%; 
-    overflow: hidden;
-    border: 3px solid #D4AF37;
-    margin: 0 auto 15px auto;
-}
-
-.circle-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* --- 5. THE FINAL TAP EFFECT FIX --- */
-
-.open-link-btn {
-    display: inline-block !important;
-    padding: 10px 35px !important;
-    /* Shuru ka rang Brown */
-    background: #8B4513 !important; 
-    color: white !important;
-    font-weight: bold !important;
-    border-radius: 25px !important;
-    border: 2px solid #D4AF37 !important;
-    text-decoration: none !important;
-    font-size: 14px !important;
-    cursor: pointer !important;
-    transition: background 0.1s ease !important;
-    -webkit-tap-highlight-color: transparent !important;
-}
-
-/* Mobile Tap aur Mouse Click par Gold effect */
-.open-link-btn:active, 
-.open-link-btn:focus {
-    background: #D4AF37 !important; /* GOLD par tabdeel */
-    color: #ffffff !important;
-    transform: scale(0.92) !important; /* Button dabne ka asar */
-    outline: none !important;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    color: #8B4513;
-}
-/* --- Categories Circle Golden Border --- */
-.circle-frame {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    overflow: hidden;
-    /* Yeh hai woh golden line jo aapko side par chahiye */
-    border: 4px solid goldenrod !important; 
-    margin: 0 auto 15px;
-    background: white;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); /* Halka sa gold glow */
-}
-
-/* --- Open Button with Full Gold & Side Border --- */
-.open-link-btn {
-    display: inline-block !important;
-    padding: 10px 35px !important;
-    background: #D4AF37 !important; /* Pora Button Gold */
-    color: white !important;
-    font-weight: bold !important;
-    border-radius: 25px !important;
-    /* Button ki side par dark brown border line */
-    border: 2px solid #8B4513 !important; 
-    text-decoration: none !important;
-    font-size: 14px !important;
-    cursor: pointer !important;
-    transition: all 0.2s ease !important;
-    -webkit-tap-highlight-color: transparent !important;
-}
-
-/* --- Tap karne par kya hoga --- */
-.open-link-btn:active {
-    background: #8B4513 !important; /* Tap par Brown ho jaye */
-    border-color: #cba732 !important; /* Border Gold ho jaye */
-    transform: scale(0.95) !important;
-}
-/* --- 1. Navbar Icons Hover (Golden Border) --- */
-.nav-item:hover .nav-icon {
-    border: 3px solid #D4AF37 !important; 
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-    transition: 0.3s ease;
-}
-
-/* --- 2. Category Circles Hover (Golden Border) --- */
-.category-card:hover .circle-frame {
-    border: 4px solid #D4AF37 !important; 
-    transform: scale(1.05); 
-    transition: all 0.3s ease;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-}
-
-/* --- 3. Open Button Styling & Hover --- */
-.open-link-btn {
-    display: inline-block !important;
-    padding: 10px 35px !important;
-    background: #b98d14 !important; /* Shuru mein Brown */
-    color: white !important;
-    font-weight: bold !important;
-    border-radius: 25px !important;
-    border: 2px solid transparent !important; 
-    text-decoration: none !important;
-    cursor: pointer !important;
-    transition: all 0.3s ease !important;
-    margin-top: 10px;
-}
-
-/* Mouse jate hi Button Gold aur Border Brown ho jaye */
-.open-link-btn:hover {
-    background: #D4AF37 !important; 
-    border: 2px solid #8B4513 !important; 
-    color: white !important;
-}
-
-/* Tap/Click par effect */
-.open-link-btn:active {
-    transform: scale(0.1);
-}
-/* --- Welcome Screen Styling --- */
-#welcome-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: #281A0D; /* Dark background taake gold chamke */
-    display: flex;
-    justify-content: center;
     align-items: center;
-    z-index: 9999; /* Sabse upar dikhne ke liye */
-    animation: fadeOut 0.3s forwards; /* 3 second baad khatam */
+    gap: 20px;
 }
 
-#welcome-screen h1 {
-    color: black;
-    font-size: 40px;
-    font-weight: 700;
-}
-
-#welcome-screen span {
-    color: #D4AF37; /* Aapka Golden Color */
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-}
-
-/* 3 second baad gayab hone ki animation */
-@keyframes fadeOut {
-    0% { opacity: 1; visibility: visible; }
-    80% { opacity: 1; }
-    100% { opacity: 0; visibility: hidden; }
-}
-/* --- Mobile Version Styles --- */
-@media (max-width: 600px) {
-    .main-title {
-        font-size: 28px !important; /* Mobile par heading choti ho jaye */
-    }
-    
-    .hero {
-        padding: 50px 15px !important; /* Mobile par gap kam ho jaye */
-    }
-
-    .navbar {
-        padding: 10px 15px !important; /* Navbar sides se fit ho jaye */
-    }
-
-    .circle-frame {
-        width: 140px !important; /* Categories thodi choti mobile ke liye */
-        height: 140px !important;
-    }
-}
-/* --- Aesthetic Summary Section Styling --- */
-
-.store-summary-section {
-    padding: 60px 20px;
-    background-color: #fffaf5; /* Bohat halka sa cream touch */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.summary-container {
-    max-width: 800px;
-    background: #ffffff;
-    padding: 40px;
-    border: 1px solid #d4af37; /* Real gold color */
-    border-radius: 2px; /* Sharp edges for luxury look */
-    text-align: center;
+.search-container {
     position: relative;
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1); /* Golden soft shadow */
-    transition: transform 0.3s ease;
 }
 
-.summary-container:hover {
-    transform: translateY(-5px); /* Chota sa lift effect */
+.search-input {
+    padding: 8px 15px 8px 35px;
+    border: 1px solid #dcd3c7;
+    border-radius: 20px;
+    font-size: 13px;
+    outline: none;
+    width: 200px;
+    background: #fffcf9;
 }
 
-.summary-container h2 {
-    font-family: 'Playfair Display', serif; /* Agar font available ho */
-    color: #b8860b;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-size: 24px;
-    margin-bottom: 20px;
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8B5A2B;
 }
 
-.summary-container p {
-    font-family: 'Georgia', serif;
-    color: #444;
-    line-height: 1.8;
-    font-size: 18px;
-    font-style: italic;
-    margin: 0;
+.whatsapp-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: #25D366;
+    font-size: 13px;
+    padding: 7px 14px;
+    border: 1px solid #25D366;
+    border-radius: 20px;
+    background: #ffffff;
 }
 
-/* Decor line niche ki taraf */
-.summary-container::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 2px;
-    background: #d4af37;
-    margin: 25px auto 0;
+.cart-summary-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 7px 16px;
+    border-radius: 20px;
+    background: #1b4d3e;
+    color: #ffffff;
 }
 
-/* Mobile Responsive */
-@media (max-width: 600px) {
-    .summary-container {
-        padding: 25px;
-    }
-    .summary-container h2 {
-        font-size: 20px;
-    }
-    .summary-container p {
-        font-size: 16px;
-    }
+/* --- Layout --- */
+.main-layout {
+    display: flex;
+    min-height: calc(100vh - 81px);
 }
-/* --- Sidebar Menu Styling --- */
 
 .sidebar {
-    height: 100%;
-    width: 0; /* Shuru mein menu chhupa rahega */
-    position: fixed;
-    z-index: 2000; /* Taake menu sab cheezon ke upar nazar aaye */
-    top: 0;
-    right: 0; /* Menu right side se slide karega */
-    background-color: #ebc375; /* Luxury Cream Background */
-    overflow-x: hidden;
-    transition: 0.5s; /* Smooth sliding effect */
-    padding-top: 60px;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-    border-left: 2px solid #d4af37; /* Golden Border on the side */
+    width: 260px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5px);
+    border-right: 1px solid #e3d5c6;
+    padding: 40px 20px;
 }
 
-/* Sidebar ke andar ke links */
-.sidebar a {
-    padding: 15px 30px;
+.sidebar h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #1b4d3e;
+    border-bottom: 2px solid #1b4d3e;
+    padding-bottom: 8px;
+}
+
+.category-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.category-list li a {
     text-decoration: none;
-    font-size: 1.2rem;
-    color: #444;
-    display: block;
-    transition: 0.3s;
-    font-family: 'Georgia', serif;
+    color: #1b4d3e;
+    font-size: 14px;
+    font-weight: 500;
 }
 
-/* Jab mouse link par jaye */
-.sidebar a:hover {
-    color:#9b7610;
-    background-color: #fcf3cf;
-    padding-right: 40px; /* Chota sa slide effect link par */
+.content-area {
+    flex: 1;
+    padding: 40px 50px;
 }
 
-/* Menu band karne wala button (X) */
-.sidebar .closebtn {
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    font-size: 20px;
-    color: #130e02;
+.hero-banner {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 35px 20px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    border: 1px solid #e3d5c6;
 }
 
-/* Categories Heading style */
-.sidebar h2 {
-    font-size: 24px;
+.crafted-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: #8B5A2B;
+    text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+}
+
+.main-tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #1b4d3e;
+}
+
+.section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin-bottom: 25px;
+    color: #1b4d3e;
+    border-left: 3px solid #1b4d3e;
+    padding-left: 12px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    background: #ffffff;
+    border: 1px solid #e3d5c6;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.02);
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-img-box {
+    width: 100%;
+    height: 220px;
+    background: #f4ede2;
+}
+
+.product-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-details {
+    padding: 18px;
+    text-align: center;
+}
+
+.product-name {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.product-price {
+    font-size: 14px;
+    font-weight: 600;
+    color: #8B5A2B;
+    margin-bottom: 15px;
+}
+
+.add-cart-btn {
+    width: 100%;
+    padding: 9px;
+    background: transparent;
+    border: 1px solid #1b4d3e;
+    color: #1b4d3e;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.add-cart-btn:hover {
+    background: #1b4d3e;
+    color: #fff;
+}
+
+/* --- Modal & Cart Styles --- */
+.product-modal-overlay, .cart-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(20, 15, 10, 0.5);
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.product-modal-overlay.open, .cart-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.product-modal {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 750px; max-width: 90%;
+    background: #fff;
+    border-radius: 12px;
+    z-index: 2001;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.product-modal.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-body-content {
+    display: flex;
+    gap: 25px;
+    padding: 30px;
+}
+
+.modal-img-container {
+    width: 350px; height: 350px;
+    background: #f4ede2;
+    overflow: hidden;
+    position: relative;
+    cursor: crosshair;
+}
+
+.modal-img-container img {
+    width: 100%; height: 100%; object-fit: cover;
+}
+
+.zoom-hint {
+    position: absolute; bottom: 8px; left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.6); color: #fff;
+    font-size: 10px; padding: 3px 8px; border-radius: 10px;
+}
+
+.modal-info-box { flex: 1; }
+.modal-info-box h2 { font-family: 'Playfair Display', serif; color: #1b4d3e; margin-bottom: 5px; }
+.modal-price { font-size: 16px; color: #8B5A2B; font-weight: 600; margin-bottom: 12px; }
+.modal-desc { font-size: 13px; color: #555; margin-bottom: 15px; }
+
+.modal-thumbnails { display: flex; gap: 8px; margin-bottom: 20px; }
+.thumb-img { width: 55px; height: 55px; object-fit: cover; border-radius: 6px; border: 2px solid #e3d5c6; cursor: pointer; }
+.thumb-img.active-thumb { border-color: #1b4d3e; }
+
+.modal-add-btn {
+    width: 100%; padding: 10px; background: #1b4d3e; color: #fff; border: none; border-radius: 20px; font-weight: 600; cursor: pointer;
+}
+
+/* Cart Drawer */
+.cart-drawer {
+    position: fixed; top: 0; right: -400px; width: 380px; height: 100%;
+    background: #fff; z-index: 2002; display: flex; flex-direction: column; transition: 0.4s;
+}
+.cart-drawer.open { right: 0; }
+.cart-header { padding: 20px; border-bottom: 1px solid #e3d5c6; display: flex; justify-content: space-between; align-items: center; }
+.close-cart { font-size: 22px; cursor: pointer; }
+.cart-items-container { flex: 1; padding: 20px; overflow-y: auto; }
+.empty-cart-msg { text-align: center; color: #777; margin-top: 30px; }
+.cart-item-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #f4ede2; padding-bottom: 10px; }
+.cart-item-name { font-size: 13px; font-weight: 500; }
+.cart-item-price { font-size: 12px; color: #8B5A2B; }
+.cart-item-controls { display: flex; align-items: center; gap: 6px; background: #fbf9f5; border: 1px solid #e3d5c6; padding: 2px 6px; border-radius: 10px; }
+.qty-btn { background: none; border: none; font-weight: bold; cursor: pointer; color: #1b4d3e; }
+.cart-footer { padding: 20px; border-top: 1px solid #e3d5c6; }
+.cart-total-row { display: flex; justify-content: space-between; font-weight: 700; color: #1b4d3e; margin-bottom: 12px; }
+.checkout-whatsapp-btn { display: block; width: 100%; padding: 10px; background: #25D366; color: #fff; text-align: center; border-radius: 20px; text-decoration: none; font-weight: 600; }
+
+@media(max-width: 768px) {
+    .main-layout { flex-direction: column; }
+    .sidebar { width: 100%; padding: 15px; }
+    .content-area { padding: 15px; }
+    .modal-body-content { flex-direction: column; }
+    .modal-img-container { width: 100%; height: 240px; }
 }
