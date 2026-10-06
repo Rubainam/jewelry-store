@@ -12,29 +12,46 @@
 <body>
 
     <!-- Header Section -->
-    <header>
+    <header class="main-header">
+        <!-- Left: Brand Title -->
         <a href="#" class="brand-title">Jhumkas & Jewellery</a>
         
-        <div class="header-right">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search collections..." style="padding-left: 15px;">
-            </div>
+        <!-- Center: Search Bar -->
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search collections...">
+        </div>
 
-            <a href="https://wa.me/923368089144?text=Hi,%20I%20want%20to%20buy%20jewellery!" target="_blank" class="whatsapp-btn" style="padding: 7px 10px; border-radius: 50%;">
+        <!-- Right: WhatsApp & Cart -->
+        <div class="header-right">
+            <a href="https://wa.me/923368089144?text=Hi,%20I%20want%20to%20buy%20jewellery!" target="_blank" class="whatsapp-btn">
                 <img src="whatsapp.png" alt="WhatsApp" style="width: 20px; height: 20px; vertical-align: middle;">
             </a>
 
             <div class="cart-summary-badge" onclick="toggleCartDrawer()">
-                <span>🛍️</span> Cart (<span id="cart-count">0</span>)
+                <span>🛍️</span> (<span id="cart-count">0</span>)
             </div>
         </div>
     </header>
 
+    <!-- Categories Toggle Button for Mobile Only -->
+    <div class="mobile-category-bar">
+        <button type="button" class="category-toggle-btn" onclick="toggleCategories()">
+            <span>📂 Browse Categories</span> <span>▼</span>
+        </button>
+        <ul class="category-dropdown-list" id="categoryDropdown">
+            <li><a href="#">Royal Jhumkas</a></li>
+            <li><a href="#">Kundan Sets</a></li>
+            <li><a href="#">Meenakari Earrings</a></li>
+            <li><a href="#">Chokers</a></li>
+            <li><a href="#">Pearl Hangings</a></li>
+        </ul>
+    </div>
+
     <!-- Main Layout -->
     <div class="main-layout">
         
-        <!-- Sidebar -->
-        <aside class="sidebar">
+        <!-- Sidebar (Desktop ke liye) -->
+        <aside class="sidebar desktop-sidebar">
             <h3>Categories</h3>
             <ul class="category-list">
                 <li><a href="#">Royal Jhumkas</a></li>
@@ -92,7 +109,15 @@
                 </div>
 
                 <!-- Product 4 -->
-                
+                <div class="product-card" onclick="openProductModal(4, 'Traditional Choker', 8500, ['jhumka4.jpg', 'jhumka4-angle2.jpg'])">
+                    <div class="product-img-box">
+                        <img src="jhumka4.jpg" alt="Traditional Choker">
+                    </div>
+                    <div class="product-details">
+                        <div class="product-name">Traditional Choker</div>
+                        <div class="product-price">Rs. 8,500</div>
+                        <button type="button" class="add-cart-btn" onclick="event.stopPropagation(); addToCart(4, 'Traditional Choker', 8500)">Add to Cart</button>
+                    </div>
                 </div>
             </div>
         </main>
@@ -143,6 +168,10 @@
             document.getElementById('cartDrawer').classList.toggle('open');
             document.getElementById('cartOverlay').classList.toggle('open');
         }
+        function toggleCategories() {
+            let dropdown = document.getElementById('categoryDropdown');
+            dropdown.classList.toggle('show');
+        }
         function addToCart(id, name, price) {
             let item = cart.find(i => i.id === id);
             if(item) item.qty++; else cart.push({id, name, price, qty: 1});
@@ -164,7 +193,6 @@
             document.getElementById('cart-count').textContent = count;
             document.getElementById('drawer-total-amount').textContent = 'Rs. ' + total;
             
-            // Dynamic WhatsApp checkout message generator
             let orderText = "Hi, I want to order these items:%0A";
             cart.forEach(i => {
                 orderText += `- ${i.name} (Qty: ${i.qty}) - Rs. ${i.price * i.qty}%0A`;
@@ -177,7 +205,6 @@
             document.getElementById('modalProductPrice').textContent = 'Rs. ' + price;
             document.getElementById('modalMainImg').src = imgs[0];
             
-            // Modal Add to Cart Button functionality link
             document.getElementById('modalAddCartBtn').onclick = function() {
                 addToCart(id, name, price);
                 closeProductModal();
